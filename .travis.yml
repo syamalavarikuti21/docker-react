@@ -1,0 +1,13 @@
+language: generic
+sudo: required # having super-user permissions
+services:
+  - docker
+
+before_install:
+  - docker build -t walkindead/docker-react -f Dockerfile.dev .
+
+script:
+  # to exit the 'npm run test' after finishing,  -- --coverage
+  - docker run walkindead/docker-react npm run test -- --coverage
+
+  # docker run -e CI=true walkindead/docker-react npm run test
