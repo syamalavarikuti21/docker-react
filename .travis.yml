@@ -10,4 +10,10 @@ script:
   # to exit the 'npm run test' after finishing,  -- --coverage
   - docker run -e CI=true walkindead/docker-react npm run test -- --coverage
 
-  # docker run -e CI=true walkindead/docker-react npm run test
+deploy:
+  provider: elasticbeanstalk
+  region: "ap-south-1"
+  app: "docker-react"
+  env: "Dockerreact-env"
+  bucket_name: "elasticbeanstalk-ap-south-1-610867789039" # automatically generates when you create elastic beanstalk in AWS
+  bucket_path: "docker-react" # will be app name by default, will be generated when you first deploy
