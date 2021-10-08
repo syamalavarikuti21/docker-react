@@ -8,6 +8,6 @@ before_install:
 
 script:
   # to exit the 'npm run test' after finishing,  -- --coverage
-  - docker run walkindead/docker-react npm run test -- --coverage
+  - docker run -e CI=true walkindead/docker-react npm run test -- --coverage
 
   # docker run -e CI=true walkindead/docker-react npm run test
