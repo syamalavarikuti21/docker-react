@@ -16,4 +16,9 @@ deploy:
   app: "docker-react"
   env: "Dockerreact-env"
   bucket_name: "elasticbeanstalk-ap-south-1-610867789039" # automatically generates when you create elastic beanstalk in AWS
-  bucket_path: "docker-react" # will be app name by default, will be generated when you first deploy
+  bucket_path: "docker-react" # will be app name by default, it will be generated when you first deploy
+  on:
+    branch: master
+  access_key_id: "$AWS_ACCESS_ID"
+  secret_access_key:
+    secure: "$AWS_SECRET_KEY"
